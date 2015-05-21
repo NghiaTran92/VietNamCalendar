@@ -65,8 +65,8 @@ public class DetailHumanActivity extends Activity implements View.OnClickListene
         SimpleDateFormat dateFormat=new SimpleDateFormat("dd/MM/yyyy");
         Human human=new Human(new DateTime(mDatePicker.getYear(),mDatePicker.getMonth()+1,mDatePicker.getDayOfMonth(),mTimePicker.getCurrentHour(),0),sex,defaul_time_zone);
         result+=getString(R.string.sex)+human.getSex()+"\n";
-        result+=getString(R.string.time)+mTimePicker.getCurrentHour()+"h:"+mTimePicker.getCurrentMinute()+"\n";
-        result+=getString(R.string.year_solar)+dateFormat.format(human.getBirthDay())+"m\n";
+        result+=getString(R.string.time)+mTimePicker.getCurrentHour()+"h:"+mTimePicker.getCurrentMinute()+"m\n";
+        result+=getString(R.string.year_solar)+dateFormat.format(human.getBirthDay())+"\n";
         result+=getString(R.string.year_lunar)+dateFormat.format(human.getBirthDayLunar())+"\n";
         result+=getString(R.string.can)+human.getBirthYearCan()+"  "+getString(R.string.chi)+" "+human.getBirthYearChi()+"\n";
         result+=getString(R.string.menh)+human.getMenh()+"\n"+getString(R.string.ngu_hanh)+human.getMenh().getNguHanh()+"\n"+getString(R.string.Cung)+" "+human.getCung()+"\n";
