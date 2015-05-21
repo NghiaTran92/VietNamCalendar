@@ -52,6 +52,7 @@ public class RelationActivity extends Activity implements View.OnClickListener {
 
     private void relation(){
         String result="";
+        int default_time_zone=7;
 
         TypeSex sex1,sex2;
         if(mRaBtnMaleHuman1.isChecked()){
@@ -66,8 +67,8 @@ public class RelationActivity extends Activity implements View.OnClickListener {
             sex2=TypeSex.Female;
         }
 
-        Human human1=new Human(new DateTime(mDatePickerHuman1.getYear(), mDatePickerHuman1.getMonth()+1, mDatePickerHuman1.getDayOfMonth()), sex1);
-        Human human2=new Human(new DateTime(mDatePickerHuman2.getYear(), mDatePickerHuman2.getMonth()+1, mDatePickerHuman2.getDayOfMonth()),sex2);
+        Human human1=new Human(new DateTime(mDatePickerHuman1.getYear(), mDatePickerHuman1.getMonth()+1, mDatePickerHuman1.getDayOfMonth()), sex1,default_time_zone);
+        Human human2=new Human(new DateTime(mDatePickerHuman2.getYear(), mDatePickerHuman2.getMonth()+1, mDatePickerHuman2.getDayOfMonth()),sex2,default_time_zone);
         result+=getString(R.string.hop_khac_2_nguoi)+"\n";
 
         TypeQuality qualityThienCan= human1.checkThienCan(human2.getBirthYearCan());

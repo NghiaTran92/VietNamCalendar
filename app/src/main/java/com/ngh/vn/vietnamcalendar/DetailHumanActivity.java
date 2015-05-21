@@ -7,6 +7,8 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.RadioButton;
 import android.widget.TextView;
+import android.widget.TimePicker;
+import android.widget.Toast;
 
 import com.lunar.calendar.Human;
 import com.lunar.type.TypeSex;
@@ -19,6 +21,7 @@ import java.text.SimpleDateFormat;
  */
 public class DetailHumanActivity extends Activity implements View.OnClickListener{
     private DatePicker mDatePicker;
+    private TimePicker mTimePicker;
     private TextView mTxtResult;
     private RadioButton mRaBtnMale;
     private RadioButton mRaBtnFemale;
@@ -29,6 +32,7 @@ public class DetailHumanActivity extends Activity implements View.OnClickListene
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_human);
         mDatePicker=(DatePicker)findViewById(R.id.datePicker);
+        mTimePicker=(TimePicker)findViewById(R.id.timePicker);
         mTxtResult=(TextView)findViewById(R.id.txt_result);
         mBtnOk=(Button)findViewById(R.id.btnOk);
         mBtnOk.setOnClickListener(this);
@@ -49,16 +53,20 @@ public class DetailHumanActivity extends Activity implements View.OnClickListene
 
     private void detailHuman(){
         String result=getString(R.string.detail_human)+"\n";
+        int defaul_time_zone=7;
         TypeSex sex;
         if(mRaBtnMale.isChecked()){
             sex=TypeSex.Male;
         }else{
             sex=TypeSex.Female;
         }
+
+
         SimpleDateFormat dateFormat=new SimpleDateFormat("dd/MM/yyyy");
-        Human human=new Human(new DateTime(mDatePicker.getYear(),mDatePicker.getMonth()+1,mDatePicker.getDayOfMonth()),sex);
+        Human human=new Human(new DateTime(mDatePicker.getYear(),mDatePicker.getMonth()+1,mDatePicker.getDayOfMonth(),mTimePicker.getCurrentHour(),0),sex,defaul_time_zone);
         result+=getString(R.string.sex)+human.getSex()+"\n";
-        result+=getString(R.string.year_solar)+dateFormat.format(human.getBirthDay())+"\n";
+        result+=getString(R.string.time)+mTimePicker.getCurrentHour()+"h:"+mTimePicker.getCurrentMinute()+"\n";
+        result+=getString(R.string.year_solar)+dateFormat.format(human.getBirthDay())+"m\n";
         result+=getString(R.string.year_lunar)+dateFormat.format(human.getBirthDayLunar())+"\n";
         result+=getString(R.string.can)+human.getBirthYearCan()+"  "+getString(R.string.chi)+" "+human.getBirthYearChi()+"\n";
         result+=getString(R.string.menh)+human.getMenh()+"\n"+getString(R.string.ngu_hanh)+human.getMenh().getNguHanh()+"\n"+getString(R.string.Cung)+" "+human.getCung()+"\n";
