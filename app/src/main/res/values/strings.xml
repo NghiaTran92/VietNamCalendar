@@ -22,4 +22,9 @@
     <string name="date_good_bad">"Ngày hoàng đạo, hắc đạo: "</string>
     <string name="theo_truc">" theo trực: "</string>
     <string name="theo_nhi_thap_bat_tu">" theo thập nhị bát tú: "</string>
+    <string name="hop_khac_2_nguoi">Hợp khắc giữa 2 người</string>
+    <string name="kiem_tra_thien_can">"Kiểm tra Thiên Can: "</string>
+    <string name="kiem_tra_dia_chi">Kiểm tra địa chi:</string>
+    <string name="kiem_tra_ngu_hanh">Kiểm tra Ngũ hành xung khắc: </string>
+    <string name="kiem_tra_cung">"Kiểm tra Cung: "</string>
 </resources>

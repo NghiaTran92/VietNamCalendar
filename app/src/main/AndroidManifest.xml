@@ -19,6 +19,7 @@
         <activity android:name=".ConvertSolar2LunarActivity"></activity>
         <activity android:name=".DetailHumanActivity"></activity>
         <activity android:name=".GoodDayActivity"></activity>
+        <activity android:name=".RelationActivity"></activity>
     </application>
 
 </manifest>

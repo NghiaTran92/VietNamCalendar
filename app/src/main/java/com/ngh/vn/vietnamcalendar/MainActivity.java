@@ -10,6 +10,8 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.lunar.calendar.Relation;
+
 
 public class MainActivity extends ListActivity {
 
@@ -32,6 +34,9 @@ public class MainActivity extends ListActivity {
                 break;
             case 2:
                 i=new Intent(this,GoodDayActivity.class);
+                break;
+            case 3:
+                i=new Intent(this,RelationActivity.class);
                 break;
             default:
                 i=new Intent(this,ConvertSolar2LunarActivity.class);
